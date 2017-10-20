@@ -1,2 +1,3 @@
-# React-App
-类似大众点评的APP基于React
+# react-simple-o2o-demo
+
+代码尚在开发中
