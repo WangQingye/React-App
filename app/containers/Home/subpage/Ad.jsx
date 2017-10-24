@@ -14,31 +14,24 @@ class Ad extends React.Component {
     render() {
         return (
             <div>
-            {
-                this.state.data.length
-                ? <HomeAd data={this.state.data}/>
-                : <div>{/* 加载中... */}</div>
-            }
+                {
+                    this.state.data.length
+                    ? <HomeAd data={this.state.data}/>
+                    : <div>加载中...</div>
+                }
             </div>
         )
     }
     componentDidMount() {
         // 获取广告数据
-        const result = getAdData()
-        result.then(res => {
+        const result = getAdData();
+        result.then((res) => {
             return res.json()
-        }).then(json => {
-            // 处理获取的数据
-            const data = json
-            if (data.length) {
+        }).then((json) => {
+            if (json.length){
                 this.setState({
-                    data: data
+                    data:json
                 })
-            }
-        }).catch(ex => {
-            // 发生错误
-            if (__DEV__) {
-                console.error('首页广告模块获取数据报错, ', ex.message)
             }
         })
     }
