@@ -2,6 +2,7 @@ import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import HomeHeader from '../../components/HomeHeader'
+
 class Home extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -16,8 +17,9 @@ class Home extends React.Component {
     }
 }
 
+// -------------------redux react 绑定--------------------
+
 function mapStateToProps(state) {
-    console.log(state);
     return {
         userinfo: state.userinfo
     }
