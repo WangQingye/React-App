@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import HomeHeader from '../../components/HomeHeader'
 import Category from '../../components/Category'
 import Ad from './subpage/Ad.jsx'
+import List from './subpage/List.jsx'
 
 class Home extends React.Component {
     constructor(props, context) {
