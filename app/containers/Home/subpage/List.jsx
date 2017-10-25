@@ -16,12 +16,13 @@ class List extends React.Component {
     }
     render() {
         return (
-            <div>1
+            <div>
+                {this.props.cityName}
             </div>
         )
     }
     componentDidMount() {
-
+        console.log(this.props);
     }
 }
         
