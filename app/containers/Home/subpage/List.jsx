@@ -12,7 +12,7 @@ class List extends React.Component {
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
         this.state = {
             data:[], // 存储列表信息
-            hasMore: false, // 记录当前状态下是否有更多数据可供加载
+            hasMore: true, // 记录当前状态下是否有更多数据可供加载
             isLoadingMore: false, // 是否正在加载新数据
             page: 1 // 下一页的页码
         }
