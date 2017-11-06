@@ -11,10 +11,18 @@ class LoadMore extends React.Component {
     render() {
         return (
             <div className="load-more" ref="wrapper">
-                <span>加载更多</span>
+                {
+                    this.props.isLoadingMore
+                    ? <span>加载中...</span>
+                    : <span onClick={this.loadMoreHandle.bind(this)}>加载更多</span>
+                }
             </div>
         )
     }
+    loadMoreHandle(){
+        this.props.loadMoreFn();
+    }
 }
+
 
 export default LoadMore

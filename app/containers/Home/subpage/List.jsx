@@ -45,8 +45,18 @@ class List extends React.Component {
     }
     // 加载更多数据
     loadMoreData(){
-        // 用到this.resultHandle
-
+        // 记录状态
+        this.setState({
+            isLoadingMore: true
+        })
+        const cityName = this.props.cityName
+        const page = this.state.page // 下一页的页码
+        const result = getListData(cityName, page)
+        this.resultHandle(result)
+        this.setState({
+            page: page + 1,
+            isLoadingMore: false
+        })
     }
     // 处理数据
     resultHandle(result){
@@ -56,7 +66,7 @@ class List extends React.Component {
             const hasMore = json.hasMore
             const data = json.data
             this.setState({
-                data: data,
+                data: this.state.data.concat(data),
                 hasMore: hasMore
             })
         })
