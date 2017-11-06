@@ -11,12 +11,14 @@ class List extends React.Component {
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
     render() {
+        const data = this.props.data
         return (
-            <div className="list-container">
-                {this.props.data.map((item, index) => {
+            <div>
+            {
+                data.map((item, index) => {
                     return <Item key={index} data={item}/>
-                })}
-            </div>
+                })
+            }</div>
         )
     }
 }
