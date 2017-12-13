@@ -22,6 +22,18 @@ class LoadMore extends React.Component {
     loadMoreHandle(){
         this.props.loadMoreFn();
     }
+    componentDidMount() {
+        /* 节流所用 */
+        let timeOutId
+        window.addEventListener('scroll', function(){
+            if (this.props.isLoadingMore) return;
+            if (timeOutId){
+                clearTimeout(timeOutId)
+            }
+            timeOutId = setTimeout(callback, 50)
+        }.bind(this), false);
+    }
+    
 }
 
 
