@@ -28,18 +28,18 @@ class City extends React.Component {
         )
     }
     changeCity(newCity) {
-        if (newCity == null) {
+        if (newCity == null){
             return
         }
-        // 修改 redux
+        // 修改redux
         const userinfo = this.props.userinfo
         userinfo.cityName = newCity
         this.props.userInfoActions.update(userinfo)
 
-        // 修改 cookie
+        // 修改localStorage
         localStore.setItem(CITYNAME, newCity)
 
-        // 跳转页面
+        // 跳转到首页
         hashHistory.push('/')
     }
 }

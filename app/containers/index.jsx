@@ -46,6 +46,7 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
     return {
+        userinfo: state.userinfo
     }
 }
 
