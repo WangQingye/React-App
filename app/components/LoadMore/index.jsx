@@ -23,6 +23,8 @@ class LoadMore extends React.Component {
         this.props.loadMoreFn();
     }
     componentDidMount() {
+        const loadMoreFn = this.props.loadMoreFn
+        const wrapper = this.refs.wrapper
         /* 节流所用 */
         let timeOutId
         window.addEventListener('scroll', function(){
@@ -32,6 +34,16 @@ class LoadMore extends React.Component {
             }
             timeOutId = setTimeout(callback, 50)
         }.bind(this), false);
+        function callback(){
+            // 距离页面顶部
+            const top = wrapper.getBoundingClientRect().top
+            const windowHeight = window.screen.height
+            console.log(top, windowHeight)
+            if (top && top < windowHeight){
+                // 当 wrapper 已经被滚动到暴露在页面的可是范围之内的时候触发
+                loadMoreFn()
+            }
+        }
     }
     
 }
